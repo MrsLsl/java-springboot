@@ -1,0 +1,67 @@
+server:
+  port: 8089
+  context-path: /api
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+  jackson:
+    serialization:
+      indent-output: true
+  messages:
+    basename: i18N/messages_zh_CN,i18N/messages_en_US
+    encoding: UTF-8
+  http:
+    encoding:
+       force: true
+       charset: UTF-8
+       enabled: true
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    #db index(0-15)
+    database: 0
+    password: iischina
+
+logging:
+  file: log.log
+  level:
+    com.ge.med.cloudRadiation : info
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+systemConfig:
+  zfpConfig:
+    url: http://10.189.131.198/ZFP?mode=proxy
+    san: san=
+    sui: sui=
+    un: administrator
+    pw: bXQcx654vxMUhHIIAn%2fhsESWEScx5sZ4yBpg8ih1%2fZP7H2zNj1N11e3HwAEyPHko
+    lights: "off"
+    view: "#view"
+    #viewall: "#viewall"
+    #showlist: "#showlist"
+  risConfig:
+    webserviceUrl: http://10.190.51.193:8090
+  staticPathConfig:
+    static_path_pattern: crrdownload
+    static_path: C:/crr-static/${systemConfig.staticPathConfig.static_path_pattern}/
+  tokenConfig:
+    tokenExpiration: 60
+    tokenSecret: GECRJwtSecret
+  roleName:
+    report_doctor: 报告医师
+    approve_doctor: 审核医师 
+    outside_doctor: 外院医生
+  conferenceConfig:
+    client: CRRConference_Install.zip
+  featuresPrefix: CloudRadiation
+  registerInfo: false
+  eioServiceConfig:
+    url: http://localhost:9000/eio/createeioandpdf
+    connectTimeout: 2
+    readTimeout: 2
+    writeTimeout: 2

@@ -1,0 +1,10 @@
+<service>
+  <id>CRR</id>
+  <name>CRR</name>
+  <description>CRR Service</description>
+  <logpath>%BASE%\Servicelogs\</logpath>
+  <logmode>roll</logmode>
+  <executable>java</executable>
+  <arguments>-Dfile.encoding=utf-8 -Dloader.path="lib/" -jar -Dspring.config.location=%BASE%\config\application.yml,%BASE%\config\tag.properties cloud-image-report-1.0.0.jar</arguments>
+  <startmode>Automatic</startmode>
+</service>
