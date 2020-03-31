@@ -8,8 +8,16 @@ server:
         cookie:
           path: /
 spring:
-  profiles:
-    active: dev
+#  profiles:
+#    active: dev
+  redis:
+    host: localhost
+    port: 6379
+    timeout: 100000
+    password: iischina
+    jedis:
+      pool:
+        max-wait: 10000
   http:
     encoding:
       force: true
@@ -20,12 +28,10 @@ spring:
 #    url: jdbc:mysql://127.0.0.1:3306/gecris?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
 #    username: root
 #    password: root
-  redis:
+
+  rabbitmq:
     host: localhost
-#    host: localhost
-    port: 6379
-    timeout: 100000
-    password: iischina
-    jedis:
-      pool:
-        max-wait: 10000
+    port: 5672
+    username: guest
+    password: guest
+    virtualHost: /
